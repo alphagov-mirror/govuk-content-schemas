@@ -360,6 +360,55 @@
     "description": {
       "type": "string"
     },
+    "aaib_report_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aircraft_category": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "commercial-fixed-wing",
+              "commercial-rotorcraft",
+              "general-aviation-fixed-wing",
+              "general-aviation-rotorcraft",
+              "sport-aviation-and-balloons",
+              "unmanned-aircraft-systems"
+            ]
+          }
+        },
+        "aircraft_type": {
+          "type": "string"
+        },
+        "bulk_published": {
+          "type": "boolean"
+        },
+        "date_of_occurrence": {
+          "type": "string",
+          "pattern": "^[1-9][0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[0-1])$"
+        },
+        "location": {
+          "type": "string"
+        },
+        "registration": {
+          "type": "string"
+        },
+        "report_type": {
+          "type": "string",
+          "enum": [
+            "annual-safety-report",
+            "correspondence-investigation",
+            "field-investigation",
+            "pre-1997-monthly-report",
+            "foreign-report",
+            "formal-report",
+            "special-bulletin",
+            "safety-study"
+          ]
+        }
+      }
+    },
     "absolute_path": {
       "description": "A path only. Query string and/or fragment are not allowed.",
       "type": "string",
@@ -373,6 +422,14 @@
         },
         {
           "type": "null"
+        }
+      ]
+    },
+    "any_metadata": {
+      "type": "object",
+      "anyOf": [
+        {
+          "$ref": "#/definitions/aaib_report_metadata"
         }
       ]
     },
@@ -435,6 +492,9 @@
         },
         "image": {
           "$ref": "#/definitions/image"
+        },
+        "metadata": {
+          "$ref": "#/definitions/any_metadata"
         },
         "political": {
           "$ref": "#/definitions/political"
