@@ -1,4 +1,61 @@
 {
+  any_metadata: {
+    type: "object",
+    anyOf: [
+      {
+        "$ref": "#/definitions/aaib_report_metadata",
+      }
+    ],
+  },
+  aaib_report_metadata: {
+    type: "object",
+    additionalProperties: false,
+    properties: {
+      bulk_published: {
+        type: "boolean",
+      },
+      aircraft_category: {
+        type: "array",
+        items: {
+          type: "string",
+          enum: [
+            "commercial-fixed-wing",
+            "commercial-rotorcraft",
+            "general-aviation-fixed-wing",
+            "general-aviation-rotorcraft",
+            "sport-aviation-and-balloons",
+            "unmanned-aircraft-systems",
+          ],
+        },
+      },
+      report_type: {
+        type: "string",
+        enum: [
+          "annual-safety-report",
+          "correspondence-investigation",
+          "field-investigation",
+          "pre-1997-monthly-report",
+          "foreign-report",
+          "formal-report",
+          "special-bulletin",
+          "safety-study",
+        ],
+      },
+      date_of_occurrence: {
+        type: "string",
+        pattern: "^[1-9][0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[0-1])$",
+      },
+      aircraft_type: {
+        type: "string",
+      },
+      location: {
+        type: "string",
+      },
+      registration: {
+        type: "string",
+      },
+    },
+  },
   government: {
     type: "object",
     additionalProperties: false,

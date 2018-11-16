@@ -16,6 +16,9 @@
         body: {
           "$ref": "#/definitions/body",
         },
+        metadata: {
+          "$ref": "#/definitions/any_metadata",
+        },
         image: {
           "$ref": "#/definitions/image",
         },
