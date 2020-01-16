@@ -31,6 +31,9 @@
         emphasised_organisations: {
           "$ref": "#/definitions/emphasised_organisations",
         },
+        brexit_no_deal_notice: {
+          "$ref": "#/definitions/brexit_no_deal_notice",
+        }
       },
     },
   },

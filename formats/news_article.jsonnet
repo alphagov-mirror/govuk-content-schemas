@@ -37,6 +37,9 @@
         political: {
           "$ref": "#/definitions/political",
         },
+        brexit_no_deal_notice: {
+          "$ref": "#/definitions/brexit_no_deal_notice",
+        }
       },
     },
   },
