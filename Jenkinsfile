@@ -60,10 +60,6 @@ node {
       govuk.bundleApp();
     }
 
-    stage("Lint") {
-      govuk.lintRuby()
-    }
-
     stage("Run tests") {
       govuk.runRakeTask("spec")
     }
